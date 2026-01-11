@@ -24,7 +24,7 @@ st.markdown("""
 
 @st.cache_data
 def load_data():
-    path = "data/processed/final_ranking_table.csv"
+    path = "notebooks/data/processed/final_ranking_table.csv"
 
     if not os.path.exists(path):
         st.error(
