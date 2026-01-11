@@ -175,11 +175,32 @@ with col_chart:
             fillcolor='rgba(0, 212, 255, 0.3)'
         ))
 
+        # Layout ajustado para DARK MODE
         fig.update_layout(
             polar=dict(
-                radialaxis=dict(visible=True, range=[0, 100]),
-                angularaxis=dict(tickfont=dict(size=14))
+                bgcolor="rgba(0,0,0,0)",  # Fundo da área polar transparente
+                radialaxis=dict(
+                    visible=True,
+                    range=[0, 100],
+                    showticklabels=True,
+                    # Cor dos números (0, 20, 40...)
+                    tickfont=dict(color='lightgray'),
+                    gridcolor='#444444',             # Cor das linhas de grade circulares
+                    linecolor='white'  # Cor da linha do eixo
+                ),
+                angularaxis=dict(
+                    # Cor dos rótulos (Shot Stopping, etc)
+                    tickfont=dict(size=14, color='white'),
+                    rotation=90,  # Gira para o topo ficar reto
+                    gridcolor='#444444',
+                    linecolor='white'
+                )
             ),
+            # Fundo externo do gráfico transparente
+            paper_bgcolor="rgba(0,0,0,0)",
+            # Fundo interno do gráfico transparente
+            plot_bgcolor="rgba(0,0,0,0)",
+            font=dict(color='white'),      # Cor da fonte geral
             margin=dict(l=40, r=40, t=20, b=20),
             showlegend=False
         )
